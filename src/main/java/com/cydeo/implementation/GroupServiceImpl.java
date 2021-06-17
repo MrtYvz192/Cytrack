@@ -27,4 +27,10 @@ public class GroupServiceImpl implements GroupService {
         return groupRepository.findAllByCybertekMentorEmail(email).stream().map(obj-> mapperUtil.convert(obj,new GroupDTO()))
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public List<GroupDTO> listAllGroupsOfAlumniMentor(String email) {
+        return groupRepository.findAllByAlumniMentorEmail(email).stream().map(obj-> mapperUtil.convert(obj,new GroupDTO()))
+                .collect(Collectors.toList());
+    }
 }

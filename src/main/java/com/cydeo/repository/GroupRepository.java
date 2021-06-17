@@ -10,4 +10,5 @@ import java.util.List;
 public interface GroupRepository extends JpaRepository<Group,Long> {
 
     List<Group> findAllByCybertekMentorEmail(String email);
+    List<Group> findAllByAlumniMentorEmail(String email);
 }

@@ -63,4 +63,17 @@ public class UserServiceImpl implements UserService {
         }
         return map;
     }
+    @Override
+    public Map<UserDTO, String> getAlumniMentorsAndGroupsMap() {
+        Map<UserDTO,String> map = new HashMap<>();
+        List<UserDTO> list = listAllUsersByRole("AlumniMentor");
+        for(UserDTO each: list){
+            List<GroupDTO> groups = groupService.listAllGroupsOfAlumniMentor(each.getEmail());
+            String groupList = groups.stream().map(obj -> obj.getBatch().getName() + " " + obj.getName())
+                    .reduce("",(x,y)-> x + y + " | ");
+            groupList = groupList.length()>0?groupList.substring(0,groupList.length()-2):"-";
+            map.put(each,groupList);
+        }
+        return map;
+    }
 }

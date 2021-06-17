@@ -37,4 +37,9 @@ public class UserController {
         return "user/cybertekmentor-list";
     }
 
+    @GetMapping("/alumniMentorList")
+    public String AlumniMentorList(Model model){
+        model.addAttribute("alumniMentors",userService.getAlumniMentorsAndGroupsMap());
+        return "user/alumnimentor-list";
+    }
 }

@@ -8,4 +8,5 @@ import java.util.Map;
 
 public interface GroupService {
     List<GroupDTO> listAllGroupsOfCybertekMentor(String email);
+    List<GroupDTO> listAllGroupsOfAlumniMentor(String email);
 }

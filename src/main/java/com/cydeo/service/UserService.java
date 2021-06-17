@@ -10,4 +10,5 @@ public interface UserService {
     List<UserDTO> listAllUsersByRole(String roleDescription);
     Map<UserDTO,String> getInstructorsAndLessonsMap();
     Map<UserDTO,String> getCybertekMentorsAndGroupsMap();
+    Map<UserDTO,String> getAlumniMentorsAndGroupsMap();
 }
