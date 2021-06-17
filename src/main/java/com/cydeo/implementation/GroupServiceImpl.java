@@ -33,4 +33,10 @@ public class GroupServiceImpl implements GroupService {
         return groupRepository.findAllByAlumniMentorEmail(email).stream().map(obj-> mapperUtil.convert(obj,new GroupDTO()))
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public List<GroupDTO> listAllGroups() {
+        return groupRepository.findAll().stream().map(obj->mapperUtil.convert(obj,new GroupDTO()))
+                .collect(Collectors.toList());
+    }
 }
