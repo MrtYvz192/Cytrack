@@ -61,7 +61,7 @@ insert into batches (insert_date_time, insert_user_id, is_deleted, last_update_d
 
 	insert into tasks (insert_date_time, insert_user_id, is_deleted, last_update_date_time, last_update_user_id,
 	                   assign_date, due_date, name, type, lesson_id)
-	values (now(), 1, false, now(), 1, '2021-12-30', '2021-12-30', 'JavaEU1Day01Recording', 'Recording', 1),
+	values (now(), 1, false, now(), 1, '2021-12-31', '2021-12-31', 'JavaEU1Day01Recording', 'Recording', 1),
 	       (now(), 1, false, now(), 1, '2021-12-30', '2021-12-30', 'Assignment01','Assignment', 1),
 	       (now(), 1, false, now(), 1, '2021-12-30', '2021-12-30', 'Quiz02','Quiz', 1),
 	       (now(), 1, false, now(), 1, '2021-12-30', '2021-12-30', 'Day02','Recording', 2),
