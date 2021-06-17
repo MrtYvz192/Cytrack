@@ -53,10 +53,10 @@ insert into batches (insert_date_time, insert_user_id, is_deleted, last_update_d
 
 	insert into groups (insert_date_time, insert_user_id, is_deleted, last_update_date_time, last_update_user_id,
 	                    mascot, name, alumni_mentor_id, batch_id, cybertek_mentor_id)
-	values (now(), 1, false, now(), 1, 'Eagles', 'Group-1', 7, 1, 5),
-	       (now(), 1, false, now(), 1, 'Falcons', 'Group-2', 7, 1, 5),
-	       (now(), 1, false, now(), 1, 'Tigers', 'Group-3', 8, 1, 6),
-	       (now(), 1, false, now(), 1, 'Lions', 'Group-4', 8, 1, 6);
+	values (now(), 1, false, now(), 1, 'Eagles', 'EU1-Group-1', 7, 1, 5),
+	       (now(), 1, false, now(), 1, 'Falcons', 'EU1-Group-2', 7, 1, 5),
+	       (now(), 1, false, now(), 1, 'Tigers', 'EU1-Group-3', 8, 1, 6),
+	       (now(), 1, false, now(), 1, 'Lions', 'EU1-Group-4', 8, 1, 6);
 
 
 	insert into tasks (insert_date_time, insert_user_id, is_deleted, last_update_date_time, last_update_user_id,
@@ -86,5 +86,5 @@ insert into batches (insert_date_time, insert_user_id, is_deleted, last_update_d
 	       (5, 11);
 
 
-	update users set group_id = 1 where users.id between 9 and 14;
+	update users set group_id = 1 where users.role_id=5;
 

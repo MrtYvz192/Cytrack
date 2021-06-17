@@ -42,4 +42,10 @@ public class UserController {
         model.addAttribute("alumniMentors",userService.getAlumniMentorsAndGroupsMap());
         return "user/alumnimentor-list";
     }
+
+    @GetMapping("/studentList")
+    public String studentList(Model model){
+        model.addAttribute("students",userService.listAllUsersByRole("Student"));
+        return "user/student-list";
+    }
 }

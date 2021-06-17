@@ -30,5 +30,6 @@ public class UserDTO {
     private Gender gender;
     private Status status;
     private RoleDTO role;
+    private GroupDTO group;
 
 }

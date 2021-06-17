@@ -1,6 +1,5 @@
 package com.cydeo.dto;
 
-import com.cydeo.entity.Batch;
 import com.cydeo.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,7 +15,7 @@ public class GroupDTO {
 
     private String name;
     private String mascot;
-    private Batch batch;
-    private User cybertekMentor;
-    private User alumniMentor;
+    private BatchDTO batch;
+    private UserDTO cybertekMentor;
+    private UserDTO alumniMentor;
 }
