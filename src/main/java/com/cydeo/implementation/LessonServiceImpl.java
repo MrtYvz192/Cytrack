@@ -3,7 +3,7 @@ package com.cydeo.implementation;
 import com.cydeo.dto.LessonDTO;
 import com.cydeo.entity.Lesson;
 import com.cydeo.entity.User;
-import com.cydeo.mapper.MainMapper;
+import com.cydeo.mapper.MapperUtil;
 import com.cydeo.repository.LessonRepository;
 import com.cydeo.repository.UserRepository;
 import com.cydeo.service.LessonService;
@@ -17,13 +17,13 @@ public class LessonServiceImpl implements LessonService {
 
     LessonRepository lessonRepository;
     UserRepository userRepository;
-    MainMapper<Lesson,LessonDTO> lessonMapper;
+    MapperUtil mapperUtil;
 
 
-    public LessonServiceImpl(LessonRepository lessonRepository, UserRepository userRepository, MainMapper<Lesson, LessonDTO> lessonMapper) {
+    public LessonServiceImpl(LessonRepository lessonRepository, UserRepository userRepository, MapperUtil mapperUtil) {
         this.lessonRepository = lessonRepository;
         this.userRepository = userRepository;
-        this.lessonMapper = lessonMapper;
+        this.mapperUtil = mapperUtil;
     }
 
     @Override
@@ -31,6 +31,6 @@ public class LessonServiceImpl implements LessonService {
         User user = userRepository.findByEmail(username);
         List<Lesson> lessons = lessonRepository.findAllByInstructorSet(user);
 
-        return lessons.stream().map(lesson -> lessonMapper.convertToDTO(lesson)).collect(Collectors.toList());
+        return lessons.stream().map(lesson -> mapperUtil.convert(lesson, new LessonDTO())).collect(Collectors.toList());
     }
 }

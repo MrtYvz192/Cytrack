@@ -29,6 +29,6 @@ public class UserDTO {
     private Country country;
     private Gender gender;
     private Status status;
-    private Role role;
+    private RoleDTO role;
 
 }
