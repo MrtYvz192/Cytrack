@@ -11,4 +11,5 @@ public interface UserService {
     Map<UserDTO,String> getInstructorsAndLessonsMap();
     Map<UserDTO,String> getCybertekMentorsAndGroupsMap();
     Map<UserDTO,String> getAlumniMentorsAndGroupsMap();
+    List<UserDTO> listAllInstructorsByLesson(String lessonName);
 }

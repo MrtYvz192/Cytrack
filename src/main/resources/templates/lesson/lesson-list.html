@@ -39,14 +39,14 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody id="myTable">
-                                                <tr th:each="lesson: ${lessons}">
+                                                <tr th:each="lesson: ${lessons.keySet()}">
                                                     <td th:text="${lesson.batch.name}"></td>
                                                     <td th:text="${lesson.name}"></td>
-                                                    <td th:text="${lesson.instru}"></td>
+                                                    <td th:text="${lessons.get(lesson)}"></td>
                                                     <td class="actions">
-                                                        <!--                            <a th:href="@{/admin/show-admin/{id}(id=${admin.email})}" class="btn btn-facebook rounded-0">Show</a>-->
-                                                        <!--                            <a th:href="@{/admin/update-admin/{id}(id=${admin.email})}"><button type="button" class="btn btn-warning btn-sm">Update</button></a>-->
-                                                        <!--                            <a th:href="@{/student/delete-admin/{id}(id=${admin.email})}" class="delete-row"><button type="button" class="btn btn-secondary btn-sm">Delete</button></a>-->
+                                                        <!--  <a th:href="@{/admin/show-admin/{id}(id=${admin.email})}" class="btn btn-facebook rounded-0">Show</a>-->
+                                                        <!--  <a th:href="@{/admin/update-admin/{id}(id=${admin.email})}"><button type="button" class="btn btn-warning btn-sm">Update</button></a>-->
+                                                        <!--  <a th:href="@{/student/delete-admin/{id}(id=${admin.email})}" class="delete-row"><button type="button" class="btn btn-secondary btn-sm">Delete</button></a>-->
                                                     </td>
                                                 </tr>
                                                 </tbody>

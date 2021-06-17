@@ -3,12 +3,15 @@ package com.cydeo.implementation;
 import com.cydeo.dto.GroupDTO;
 import com.cydeo.dto.LessonDTO;
 import com.cydeo.dto.UserDTO;
+import com.cydeo.entity.Lesson;
 import com.cydeo.entity.User;
 import com.cydeo.mapper.MapperUtil;
+import com.cydeo.repository.LessonRepository;
 import com.cydeo.repository.UserRepository;
 import com.cydeo.service.GroupService;
 import com.cydeo.service.LessonService;
 import com.cydeo.service.UserService;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -23,12 +26,14 @@ public class UserServiceImpl implements UserService {
     MapperUtil mapperUtil;
     LessonService lessonService;
     GroupService groupService;
+    LessonRepository lessonRepository;
 
-    public UserServiceImpl(UserRepository userRepository, MapperUtil mapperUtil, LessonService lessonService, GroupService groupService) {
+    public UserServiceImpl(UserRepository userRepository, MapperUtil mapperUtil, @Lazy LessonService lessonService, GroupService groupService, LessonRepository lessonRepository) {
         this.userRepository = userRepository;
         this.mapperUtil = mapperUtil;
         this.lessonService = lessonService;
         this.groupService = groupService;
+        this.lessonRepository = lessonRepository;
     }
 
     @Override
@@ -75,5 +80,12 @@ public class UserServiceImpl implements UserService {
             map.put(each,groupList);
         }
         return map;
+    }
+
+    @Override
+    public List<UserDTO> listAllInstructorsByLesson(String lessonName) {
+        Lesson lesson = lessonRepository.findByName(lessonName);
+        return userRepository.findAllByLessonSet(lesson).stream().map(obj->mapperUtil.convert(obj,new UserDTO()))
+                .collect(Collectors.toList());
     }
 }
