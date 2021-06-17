@@ -24,4 +24,17 @@ public class UserController {
         model.addAttribute("admins",userService.listAllUsersByRole("Admin"));
         return "user/admin-list";
     }
+
+    @GetMapping("/instructorList")
+    public String instructorList(Model model){
+        model.addAttribute("instructors",userService.getInstructorsAndLessonsMap());
+        return "user/instructor-list";
+    }
+
+    @GetMapping("/cybertekMentorList")
+    public String cybertekMentorList(Model model){
+        model.addAttribute("cybertekMentors",userService.getCybertekMentorsAndGroupsMap());
+        return "user/cybertekmentor-list";
+    }
+
 }
